@@ -3,7 +3,7 @@ import tensorflow as tf
 import tensorflow.keras as keras
 import numpy as np
 import numpy as np
-import panadas as pd
+import pandas as pd
 
 from keras.models import load_model
 model = load_model('my_model.h5')
