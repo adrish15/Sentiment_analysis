@@ -54,8 +54,7 @@ model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
 history=model.fit(train_data,train_labels,epochs=30,batch_size=512,validation_data=(test_data,test_labels))
 index=np.random.randint(1,1000)
 
-"st.title("Welcome to Sentiment analyzer")"
-
+st.title("Welcome to Sentiment analyzer")
 user_review = st.text_input("Your feedback", key="text")
 user_review = user_review.split()
 user_review = review_encoder(user_review)
