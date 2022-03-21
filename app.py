@@ -21,7 +21,6 @@ def review_encoder(text):
 
 st.title("Welcome to Sentiment analyzer")
 user_review = st.text_input("Your feedback", key="text")
-user_review="good book"
 user_review = user_review.split()
 user_review = review_encoder(user_review)
 user_review=np.array([user_review])
