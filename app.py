@@ -8,7 +8,7 @@ import pandas as pd
 from keras.models import load_model
 model = load_model('my_model.h5')
 
-word_index=pd.read_csv("/content/word_indexes.csv")
+word_index=pd.read_csv("word_indexes.csv")
 word_index=dict(zip(word_index.Words,word_index.Indexes))
 word_index["<PAD>"]=0
 word_index["<START"]=1
