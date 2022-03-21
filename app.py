@@ -4,7 +4,6 @@ import tensorflow.keras as keras
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import time
 import numpy as np
 
 imdb_reviews=pd.read_csv("/content/imdb_reviews.csv")
