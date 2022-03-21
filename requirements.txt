@@ -5,7 +5,6 @@ streamlit
 pandas
 plotly
 matplotlib
-time
 h5py==2.10.0 
 requests==2.24.0
 streamlit_lottie==0.0.2
