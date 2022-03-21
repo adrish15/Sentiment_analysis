@@ -6,9 +6,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-imdb_reviews=pd.read_csv("/content/imdb_reviews.csv")
-test_reviews=pd.read_csv("/content/test_reviews.csv")
-word_index=pd.read_csv("/content/word_indexes.csv")
+imdb_reviews=pd.read_csv("imdb_reviews.csv")
+test_reviews=pd.read_csv("test_reviews.csv")
+word_index=pd.read_csv("word_indexes.csv")
 word_index=dict(zip(word_index.Words,word_index.Indexes))
 
 word_index["<PAD>"]=0
