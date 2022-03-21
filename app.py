@@ -58,6 +58,7 @@ user_review = st.text_input("Your feedback", key="text")
 user_review = user_review.split()
 user_review = review_encoder(user_review)
 user_review=np.array([user_review])
+user_review=keras.preprocessing.sequence.pad_sequences(user_review,value=word_index["<PAD>"],padding='post',maxlen=500)
 
 add_selectbox = st.sidebar.selectbox(
     'Feedback category',
