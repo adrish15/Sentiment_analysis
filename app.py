@@ -7,6 +7,8 @@ import numpy as np
 from keras.models import load_model
 model = load_model('my_model.h5')
 
+word_index=pd.read_csv("/content/word_indexes.csv")
+
 def review_encoder(text):
   arr=[word_index[word] for word in text]
   return arr
