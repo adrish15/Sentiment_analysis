@@ -8,7 +8,12 @@ import pandas as pd
 from keras.models import load_model
 model = load_model('my_model.h5')
 
-word_index=pd.read_csv("word_indexes.csv")
+word_index=pd.read_csv("/content/word_indexes.csv")
+word_index=dict(zip(word_index.Words,word_index.Indexes))
+word_index["<PAD>"]=0
+word_index["<START"]=1
+word_index["<UNK>"]=2
+word_index["<UNUSED>"]=3
 
 def review_encoder(text):
   arr=[word_index[word] for word in text]
@@ -16,6 +21,7 @@ def review_encoder(text):
 
 st.title("Welcome to Sentiment analyzer")
 user_review = st.text_input("Your feedback", key="text")
+user_review="good book"
 user_review = user_review.split()
 user_review = review_encoder(user_review)
 user_review=np.array([user_review])
