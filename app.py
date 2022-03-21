@@ -7,11 +7,9 @@ import numpy as np
 from keras.models import load_model
 model = load_model('my_model.h5')
 
-def encode_sentiments(x):
-  if x=='positive':
-    return 1
-  else:
-    return 0
+def review_encoder(text):
+  arr=[word_index[word] for word in text]
+  return arr
 
 st.title("Welcome to Sentiment analyzer")
 user_review = st.text_input("Your feedback", key="text")
