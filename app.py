@@ -35,9 +35,9 @@ add_selectbox = st.sidebar.selectbox(
 
 left_column, right_column = st.columns(2)
 # You can use a column just like st.sidebar:
-left_column.button('sentiment!')
+if left_column.button('sentiment!'):
 
-if (model.predict(user_review)>0.5).astype("int32"):
-  st.write('positive sentiment')
-else:
-  st.write("negative sentiment")
+  if (model.predict(user_review)>0.5).astype("int32"):
+    st.write('positive sentiment')
+  else:
+    st.write("negative sentiment")
