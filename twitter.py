@@ -2,9 +2,9 @@ from keras.preprocessing.sequence import pad_sequences
 from keras.models import load_model
 import pickle
 # Load model
-model = load_model('/content/drive/MyDrive/Colab Data files/my_model.h5')
+model = load_model('adrish_model.h5')
 #loading tokenizer
-with open('/content/drive/MyDrive/Colab Data files/tokenizer.pickle', 'rb') as tokenizer_sav:
+with open('tokenizer.pickle', 'rb') as tokenizer_sav:
     tokenizer = pickle.load(tokenizer_sav)
     
 def predict_class(text):
