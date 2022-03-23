@@ -4,6 +4,7 @@ import tensorflow.keras as keras
 import numpy as np
 import numpy as np
 import pandas as pd
+import twitter
 
 from keras.models import load_model
 model = load_model('model_monu.h5')
