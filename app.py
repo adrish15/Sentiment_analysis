@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 
 from keras.models import load_model
-model = load_model('my_model.h5')
+model = load_model('model_monu.h5')
 
 word_index=pd.read_csv("word_indexes.csv")
 word_index=dict(zip(word_index.Words,word_index.Indexes))
