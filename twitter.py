@@ -19,10 +19,5 @@ def predict_class(text):
     # Do the prediction using the loaded model
     yt = model.predict(xt).argmax(axis=1)
 
-    print('The predicted sentiment is', sentiment_classes[yt[0]])
+    return sentiment_classes[yt[0]]
     
-predict_class(["My experience so far has been fantastic"])
-
-predict_class(["the movie was bad"])
-
-predict_class(["take an umbrella"])
