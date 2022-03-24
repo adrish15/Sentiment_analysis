@@ -29,7 +29,7 @@ word_index["<UNUSED>"]=3
 def review_encoder(text):
   arr=[word_index[word] for word in text]
   return arr
-add_selectbox = st.selectbox(
+add_selectbox = st.sidebar.selectbox(
     'Feedback category',
     ('Movies', 'Books','Twitter Analysis')
 )
@@ -44,7 +44,7 @@ if add_selectbox=='Movies' or 'Books':
 	user_review = review_encoder(user_review)
 	user_review=np.array([user_review])
 	user_review=keras.preprocessing.sequence.pad_sequences(user_review,value=word_index["<PAD>"],padding='post',maxlen=500)
-	left_column, right_column = st.columns(2)
+	
 	
 	if left_column.button('sentiment!'):
 
