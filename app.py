@@ -31,7 +31,7 @@ def review_encoder(text):
   return arr
 add_selectbox = st.sidebar.selectbox(
     'Feedback category',
-    ('Movies', 'Books','Twitter Analysis')
+    ('Movies', 'Books','Twitter Analysis',index=2)
 )
 #st.text_input("Your feedback", key="text")
 
