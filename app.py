@@ -35,7 +35,7 @@ add_selectbox = st.sidebar.selectbox(
 )
 
 if add_selectbox=='Twitter_Analysis':
-  st.wwrite("hi welcome to twitter analysis")
+  st.write("hi welcome to twitter analysis")
   load_dotenv()
 
   consumerKey = os.getenv("2CV30nuFrYXvQszVc618aLS5m")
