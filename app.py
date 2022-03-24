@@ -46,7 +46,7 @@ if add_selectbox=='Movies' or 'Books':
 	user_review=keras.preprocessing.sequence.pad_sequences(user_review,value=word_index["<PAD>"],padding='post',maxlen=500)
 	
 	
-	if left_column.button('sentiment!'):
+	if st.button('sentiment!'):
 
 		if (model.predict(user_review)>0.5).astype("int32"):
 			st.write('positive sentiment')
