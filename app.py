@@ -36,7 +36,7 @@ add_selectbox = st.sidebar.radio(
 #st.text_input("Your feedback", key="text")
 
 
-if add_selectbox=='Movies' or 'Books':
+if add_selectbox=='Movies':
 	st.title("Welcome to Sentiment analyzer")
 	user_review = st.text_input("Your feedback", key="text")
 	user_review=user_review.lower()
