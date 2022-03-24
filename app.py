@@ -35,7 +35,7 @@ add_selectbox = st.sidebar.radio(
 )
 #st.text_input("Your feedback", key="text")
 
-''''
+'''
 if add_selectbox=='Movies' or 'Books':
 	st.title("Welcome to Sentiment analyzer")
 	user_review = st.text_input("Your feedback", key="text")
@@ -52,7 +52,7 @@ if add_selectbox=='Movies' or 'Books':
 			st.write('positive sentiment')
 		else:
 			st.write("negative sentiment")
-''''
+'''
 
 if add_selectbox=='Twitter_Analysis':
   st.wwrite("hi welcome to twitter analysis")
