@@ -53,7 +53,7 @@ if add_selectbox=='Movies' or 'Books':
 		else:
 			st.write("negative sentiment")
 
-elif add_selectbox=='Twitter_Analysis':
+if add_selectbox=='Twitter_Analysis':
   st.wwrite("hi welcome to twitter analysis")
   load_dotenv()
 
