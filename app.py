@@ -54,7 +54,7 @@ if add_selectbox=='Movies' or add_selectbox=='Books':
 
 
 elif add_selectbox=='Twitter Analysis':
-  st.write("hi welcome to twitter analysis")
+  st.write("Hi welcome to twitter analysis")
   load_dotenv()
 
   consumerKey = "2CV30nuFrYXvQszVc618aLS5m"
