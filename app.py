@@ -146,7 +146,7 @@ if add_selectbox=='Twitter_Analysis':
 
 
           else:
-            posts=[status for status in tw.Cursor(api.search, q=raw_text).items(100)]
+            posts=[status for status in tw.Cursor(api.search_tweets, q=raw_text).items(100)]
 
 
           def fetch_tweets():
