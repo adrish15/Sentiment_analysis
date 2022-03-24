@@ -35,7 +35,7 @@ add_selectbox = st.sidebar.radio(
 )
 #st.text_input("Your feedback", key="text")
 
-'''
+
 if add_selectbox=='Movies' or 'Books':
 	st.title("Welcome to Sentiment analyzer")
 	user_review = st.text_input("Your feedback", key="text")
@@ -44,7 +44,7 @@ if add_selectbox=='Movies' or 'Books':
 	user_review = review_encoder(user_review)
 	user_review=np.array([user_review])
 	user_review=keras.preprocessing.sequence.pad_sequences(user_review,value=word_index["<PAD>"],padding='post',maxlen=500)
-	
+	st.write(add_selectbox)
 	
 	if st.button('sentiment!'):
 
@@ -52,7 +52,7 @@ if add_selectbox=='Movies' or 'Books':
 			st.write('positive sentiment')
 		else:
 			st.write("negative sentiment")
-'''
+
 
 if add_selectbox=='Twitter_Analysis':
   st.wwrite("hi welcome to twitter analysis")
