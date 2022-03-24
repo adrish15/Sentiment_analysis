@@ -31,7 +31,7 @@ def review_encoder(text):
   return arr
 add_selectbox = st.sidebar.selectbox(
     'Feedback category',
-    ('Twitter_Analysis')
+    ['Twitter_Analysis']
 )
 
 if add_selectbox=='Twitter_Analysis':
