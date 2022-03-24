@@ -31,17 +31,44 @@ def review_encoder(text):
   return arr
 add_selectbox = st.sidebar.selectbox(
     'Feedback category',
-    ['Twitter_Analysis']
+    ('Movies', 'Books','Twitter Analysis')
 )
+#st.text_input("Your feedback", key="text")
 
-if add_selectbox=='Twitter_Analysis':
-  st.write("hi welcome to twitter analysis")
+left_column, right_column = st.columns(2)
+if add_selectbox=='Movies' or 'Books':
+	st.title("Welcome to Sentiment analyzer")
+	user_review = st.text_input("Your feedback", key="text")
+	user_review=user_review.lower()
+	user_review = user_review.split()
+	user_review = review_encoder(user_review)
+	user_review=np.array([user_review])
+	user_review=keras.preprocessing.sequence.pad_sequences(user_review,value=word_index["<PAD>"],padding='post',maxlen=500)
+	'''
+	add_selectbox = st.sidebar.selectbox(
+		'Feedback category',
+		('Movies', 'Books','Twitter Analysis')
+	)
+	#st.text_input("Your feedback", key="text")
+	left_column, right_column = st.columns(2)
+	if add_selectbox=='Movies' or 'Books':
+	# You can use a column just like st.sidebar:
+	'''
+	if left_column.button('sentiment!'):
+
+		if (model.predict(user_review)>0.5).astype("int32"):
+			st.write('positive sentiment')
+		else:
+			st.write("negative sentiment")
+
+elif add_selectbox=='Twitter_Analysis':
+  st.wwrite("hi welcome to twitter analysis")
   load_dotenv()
 
-  consumerKey = "2CV30nuFrYXvQszVc618aLS5m"
-  consumerSecret = "ceEsspnqKz77i2QBUibCEjfwwIXai199iLFAcwozbTU1BPU7YK"
-  accessToken ="3232375908-E7VJTgGjddxMiVWcCTf8ssGTx07Dg9Ey1luNXzU"
-  accessTokenSecret = "EAwwlXJ0GreTRHO7WNcI3nzizJHB1l2Rku71fUgqm0MX7"
+  consumerKey = os.getenv("2CV30nuFrYXvQszVc618aLS5m")
+  consumerSecret = os.getenv("ceEsspnqKz77i2QBUibCEjfwwIXai199iLFAcwozbTU1BPU7YK")
+  accessToken = os.getenv("3232375908-E7VJTgGjddxMiVWcCTf8ssGTx07Dg9Ey1luNXzU")
+  accessTokenSecret = os.getenv("EAwwlXJ0GreTRHO7WNcI3nzizJHB1l2Rku71fUgqm0MX7")
   #Create the authentication object
   authenticate = tw.OAuthHandler(consumerKey, consumerSecret) 
 
@@ -112,11 +139,11 @@ if add_selectbox=='Twitter_Analysis':
 
 
           if stauses == 'Fetch the most recent tweets from the given twitter handle': 
-              posts = [status for status in tw.Cursor(api.user_timeline, screen_name=raw_text,lang='en').items(notweet)]
+              posts = [status for status in tw.Cursor(api.user_timeline, screen_name=raw_text).items(notweet)]
 
 
           else :
-                posts = [status for status in tw.Cursor(api.search_tweets, q=raw_text,lang='en').items(100)]
+                posts = [status for status in tw.Cursor(api.search, q=raw_text).items(100)]
 
 
 
@@ -142,11 +169,11 @@ if add_selectbox=='Twitter_Analysis':
         def Analyse_Recent_Tweets(raw_text):
 
           if stauses == 'Fetch the most recent tweets from the given twitter handle': 
-              posts = [status for status in tw.Cursor(api.user_timeline, screen_name=raw_text,lang='en').items(notweet)]
+              posts = [status for status in tw.Cursor(api.user_timeline, screen_name=raw_text).items(notweet)]
 
 
           else:
-            posts=[status for status in tw.Cursor(api.search_tweets, q=raw_text,lang='en').items(100)]
+            posts=[status for status in tw.Cursor(api.search, q=raw_text).items(100)]
 
 
           def fetch_tweets():
