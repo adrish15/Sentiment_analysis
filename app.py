@@ -38,10 +38,10 @@ if add_selectbox=='Twitter_Analysis':
   st.write("hi welcome to twitter analysis")
   load_dotenv()
 
-  consumerKey = os.getenv("2CV30nuFrYXvQszVc618aLS5m")
-  consumerSecret = os.getenv("ceEsspnqKz77i2QBUibCEjfwwIXai199iLFAcwozbTU1BPU7YK")
-  accessToken = os.getenv("3232375908-E7VJTgGjddxMiVWcCTf8ssGTx07Dg9Ey1luNXzU")
-  accessTokenSecret = os.getenv("EAwwlXJ0GreTRHO7WNcI3nzizJHB1l2Rku71fUgqm0MX7")
+  consumerKey = "2CV30nuFrYXvQszVc618aLS5m"
+  consumerSecret = "ceEsspnqKz77i2QBUibCEjfwwIXai199iLFAcwozbTU1BPU7YK"
+  accessToken ="3232375908-E7VJTgGjddxMiVWcCTf8ssGTx07Dg9Ey1luNXzU"
+  accessTokenSecret = "EAwwlXJ0GreTRHO7WNcI3nzizJHB1l2Rku71fUgqm0MX7"
   #Create the authentication object
   authenticate = tw.OAuthHandler(consumerKey, consumerSecret) 
 
