@@ -44,7 +44,6 @@ if add_selectbox=='Movies' or add_selectbox=='Books':
 	user_review = review_encoder(user_review)
 	user_review=np.array([user_review])
 	user_review=keras.preprocessing.sequence.pad_sequences(user_review,value=word_index["<PAD>"],padding='post',maxlen=500)
-	st.write(add_selectbox)
 	
 	if st.button('sentiment!'):
 
