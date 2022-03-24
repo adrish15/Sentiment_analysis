@@ -31,12 +31,12 @@ def review_encoder(text):
   return arr
 add_selectbox = st.sidebar.radio(
     'Feedback category',
-    ('Movies', 'Books','Twitter Analysis')
+    ('Movies', 'Airline senitment','Twitter Analysis')
 )
 #st.text_input("Your feedback", key="text")
 
 
-if add_selectbox=='Movies' or add_selectbox=='Books':
+if add_selectbox=='Movies' or add_selectbox=='Airline sentiment':
 	st.title("Welcome to Sentiment analyzer")
 	user_review = st.text_input("Your feedback", key="text")
 	user_review=user_review.lower()
