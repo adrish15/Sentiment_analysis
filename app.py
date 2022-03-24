@@ -29,7 +29,7 @@ word_index["<UNUSED>"]=3
 def review_encoder(text):
   arr=[word_index[word] for word in text]
   return arr
-add_selectbox = st.sidebar.selectbox(
+add_selectbox = st.selectbox(
     'Feedback category',
     ('Movies', 'Books','Twitter Analysis')
 )
