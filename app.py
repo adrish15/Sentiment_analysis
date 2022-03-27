@@ -79,7 +79,7 @@ elif add_selectbox=='Product':
 	classifier=pipeline("sentiment-analysis")
 	if(st.button("Analyse")):
 		result=classifier(user_review)
-		st.write("Sentiment: "+result[0]['label']+ "\n" + "Confidence:"+ result[0]['score'])
+		st.write("Sentiment: "+result[0]['label']+ "\n" + "Confidence:"+ str(result[0]['score']))
 	
 
 elif add_selectbox=='Twitter Analysis':
