@@ -22,9 +22,13 @@ from nltk.stem.porter import *
 from transformers import pipeline
 
 #loading model and tokenizer for movies
-model = load_model('model_movies.h5')
+model_movies = load_model('model_movies.h5')
 with open('tokenizer_movies.pickle', 'rb') as tokenizer_movies:
     tokenizer_movies = pickle.load(tokenizer_movies)
+#loading model and tokenizer for twitter analysis
+model_twitter = load_model('adrish_model.h5')
+with open('tokenizer_twitter.pickle', 'rb') as tokenizer_twitter:
+    tokenizer_twitter = pickle.load(tokenizer_twitter)
 
 def preprocess_movies(review):
     
@@ -56,9 +60,25 @@ def predict_class_movies(text):
 
     xt = pad_sequences(xt, padding='post', maxlen=max_len)
     # Do the prediction using the loaded model
+    yt = model_movies.predict(xt).argmax(axis=1)
+
+    return sentiment_classes[yt[0]]
+
+
+def predict_class_twitter(text):
+    
+    sentiment_classes = ['Negative', 'Neutral', 'Positive']
+    max_len=600
+    
+   
+    xt = tokenizer_twitter.texts_to_sequences(text)
+
+    xt = pad_sequences(xt, padding='post', maxlen=max_len)
+    # Do the prediction using the loaded model
     yt = model.predict(xt).argmax(axis=1)
 
     return sentiment_classes[yt[0]]
+
 
 add_selectbox = st.sidebar.selectbox(
     'Feedback category',
@@ -76,11 +96,10 @@ if add_selectbox=='Movies':
 elif add_selectbox=='Product':
 	st.title("Welcome to Sentiment analyzer")
 	user_review = st.text_input("Your feedback", key="text")
-	classifier=pipeline("sentiment-analysis")
+ 	classifier=pipeline("sentiment-analysis")
 	if(st.button("Analyse")):
 		result=classifier(user_review)
-		st.write("Sentiment: "+result[0]['label'])
-		st.write("Confidence: " + str(result[0]['score']))
+		st.write("Sentiment: "+result[0]['label']+ "\n" + "Confidence:"+ str(result[0]['score']))
 	
 
 elif add_selectbox=='Twitter Analysis':
@@ -205,9 +224,9 @@ elif add_selectbox=='Twitter Analysis':
 							# i= i+1
 						for j in range(0,notweet):
 							#m=[]
-							m.append(predict_class([l2[j]]))
+							m.append(predict_class_twitter([l2[j]]))
 							st.write(l2[j])
-							st.write("The predicted sentiment is",predict_class([l2[j]]))
+							st.write("The predicted sentiment is",predict_class_twitter([l2[j]]))
 							st.write("")
 							st.write("__________________________________________________________________________________")
 							#st.write(m)
