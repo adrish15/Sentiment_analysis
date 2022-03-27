@@ -20,7 +20,7 @@ nltk.download("stopwords")
 from nltk.corpus import stopwords
 from nltk.stem.porter import *
 from transformers import pipeline
-classifier=pipeline("sentiment-analysis")
+
 
 #loading model and tokenizer for movies
 model = load_model('model_movies.h5')
@@ -76,6 +76,7 @@ if add_selectbox=='Movies':
 elif add_selectbox=='Product':
 	st.title("Welcome to Sentiment analyzer")
 	user_review = st.text_input("Your feedback", key="text")
+	classifier=pipeline("sentiment-analysis")
 	result=classifier(user_review)
 	st.write("Sentiment: "+result[0]['label']+ "\n" + "Confidence:"+ result[0]['score'])
 	
