@@ -96,7 +96,7 @@ if add_selectbox=='Movies':
 elif add_selectbox=='Product':
 	st.title("Welcome to Sentiment analyzer")
 	user_review = st.text_input("Your feedback", key="text")
- 	classifier=pipeline("sentiment-analysis")
+	classifier=pipeline("sentiment-analysis")
 	if(st.button("Analyse")):
 		result=classifier(user_review)
 		st.write("Sentiment: "+result[0]['label']+ "\n" + "Confidence:"+ str(result[0]['score']))
