@@ -75,7 +75,7 @@ def predict_class_twitter(text):
 
     xt = pad_sequences(xt, padding='post', maxlen=max_len)
     # Do the prediction using the loaded model
-    yt = model.predict(xt).argmax(axis=1)
+    yt = model_twitter.predict(xt).argmax(axis=1)
 
     return sentiment_classes[yt[0]]
 
