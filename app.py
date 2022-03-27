@@ -178,11 +178,11 @@ elif add_selectbox=='Twitter Analysis':
 						
 
 					if stauses == 'Fetch the most recent tweets from the given twitter handle': 
-							posts = [status for status in tw.Cursor(api.user_timeline, screen_name=raw_text).items(notweet)]
+							posts = [status for status in tw.Cursor(api.user_timeline, screen_name=raw_text,lang='en').items(notweet)]
 
 							
 					else :
-								posts = [status for status in tw.Cursor(api.search_tweets(lang='en'), q=raw_text).items(100)]
+								posts = [status for status in tw.Cursor(api.search_tweets, q=raw_text,lang='en').items(100)]
 									
 
 
@@ -208,11 +208,11 @@ elif add_selectbox=='Twitter Analysis':
 				def Analyse_Recent_Tweets(raw_text):
 								
 					if stauses == 'Fetch the most recent tweets from the given twitter handle': 
-							posts = [status for status in tw.Cursor(api.user_timeline, screen_name=raw_text).items(notweet)]
+							posts = [status for status in tw.Cursor(api.user_timeline, screen_name=raw_text,lang='en').items(notweet)]
 
 							
 					else:
-						posts=[status for status in tw.Cursor(api.search_tweets(lang='en'), q=raw_text).items(100)]
+						posts=[status for status in tw.Cursor(api.search_tweets, q=raw_text,lang='en').items(100)]
 
 					
 					def fetch_tweets():
