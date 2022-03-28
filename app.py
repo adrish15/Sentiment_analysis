@@ -118,7 +118,7 @@ elif add_selectbox=='Twitter Analysis':
 	api = tw.API(authenticate, wait_on_rate_limit = True)
 	classifier=pipeline("sentiment-analysis")
 	def predict_class_twiter(text):
-		(classifier(text))[0]['label']
+		return (classifier(text))[0]['label']
 
 	def app():
 		def process_stauses(sta):
