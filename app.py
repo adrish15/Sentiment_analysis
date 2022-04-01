@@ -245,11 +245,11 @@ elif add_selectbox=='Twitter Analysis':
 				st.write("")
 				fig = px.pie(df,names=df['Sentiment'], title ='Pie chart of different sentiments of tweets')
 				st.plotly_chart(fig)
-				pos = df[df['Sentiment'] == 'Positive']
+				pos = df[df['Sentiment'] == 'POSITIVE']
 					#st.write(pos)
-				neg = df[df['Sentiment'] == 'Negative']
+				neg = df[df['Sentiment'] == 'NEGATIVE']
 					#st.write(neg)
-				neu = df[df['Sentiment'] == 'Neutral']
+				neu = df[df['Sentiment'] == 'NEUTRAL']
 					#st.write(neu)
 				total_rows = df.count()
 				rowsp = pos.count()
