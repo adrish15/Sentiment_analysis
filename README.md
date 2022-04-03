@@ -5,5 +5,5 @@ We have used bidirectional lstm for twitter analysis(Used Adrish twitter develop
 used a imdb dataset(50k movie reviews) trained CNN-RNN hybrid model for movies
 and a huggies transformer distil-bert for products
 
-Find the code and dataset in folder
+Find the code and dataset in folder.
 All models and tokeizer are in main branch
