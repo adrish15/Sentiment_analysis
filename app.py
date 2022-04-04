@@ -116,9 +116,6 @@ elif add_selectbox=='Twitter Analysis':
 			
 	# Creating the API object while passing in auth information
 	api = tw.API(authenticate, wait_on_rate_limit = True)
-	classifier=pipeline("sentiment-analysis")
-	def predict_class_twiter(text):
-		return (classifier(text))[0]['label']
 
 	def app():
 		def process_stauses(sta):
@@ -226,9 +223,9 @@ elif add_selectbox=='Twitter Analysis':
 							# i= i+1
 						for j in range(0,notweet):
 							#m=[]
-							m.append(predict_class_twiter([l2[j]]))
+							m.append(predict_class_twitter([l2[j]]))
 							st.write(l2[j])
-							st.write("The predicted sentiment is",predict_class_twiter([l2[j]]))
+							st.write("The predicted sentiment is",predict_class_twitter([l2[j]]))
 							st.write("")
 							st.write("__________________________________________________________________________________")
 							#st.write(m)
@@ -245,11 +242,11 @@ elif add_selectbox=='Twitter Analysis':
 				st.write("")
 				fig = px.pie(df,names=df['Sentiment'], title ='Pie chart of different sentiments of tweets')
 				st.plotly_chart(fig)
-				pos = df[df['Sentiment'] == 'POSITIVE']
+				pos = df[df['Sentiment'] == 'Positive']
 					#st.write(pos)
-				neg = df[df['Sentiment'] == 'NEGATIVE']
+				neg = df[df['Sentiment'] == 'Negative']
 					#st.write(neg)
-				neu = df[df['Sentiment'] == 'NEUTRAL']
+				neu = df[df['Sentiment'] == 'Neutral']
 					#st.write(neu)
 				total_rows = df.count()
 				rowsp = pos.count()
