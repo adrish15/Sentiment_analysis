@@ -116,6 +116,9 @@ elif add_selectbox=='Twitter Analysis':
 			
 	# Creating the API object while passing in auth information
 	api = tw.API(authenticate, wait_on_rate_limit = True)
+	classifier=pipeline("sentiment-analysis")
+	def predict_class_twiter(text):
+		return (classifier(text))[0]['label']
 
 	def app():
 		def process_stauses(sta):
